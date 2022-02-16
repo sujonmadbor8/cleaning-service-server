@@ -4,7 +4,7 @@ const cors = require("cors");
 const ObjectId = require("mongodb").ObjectID;
 const fileUpload = require("express-fileupload");
 const MongoClient = require("mongodb").MongoClient;
-const port = process.env.PORT || 5000;
+const port = 5000;
 require("dotenv").config();
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.zvuaj.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -117,4 +117,4 @@ client.connect((err) => {
   });
 });
 
-app.listen(port);
+app.listen(process.env.PORT || port);
